@@ -1,5 +1,5 @@
-import { useState, If, Else, ElseIf, useEffect } from 'dharti';
-import Button from './Button';
+import { useState, If, Else, ElseIf, useEffect } from "dharti";
+import Button from "./Button";
 const Counter = () => {
   const count = useState(0);
   const show = useState(false);
@@ -17,13 +17,11 @@ const Counter = () => {
           <h1>{count()} </h1>
         </Else>
       </If>
+      <div>
+        <input type="checkbox" bind:checked={show} />
+        <label>Show Increment and Decrement buttons</label>
+      </div>
       <If condition={show()}>
-        <Else>
-          <div>
-            <input type="checkbox" bind:checked={show} />
-            <label>Show Increment and Decrement buttons</label>
-          </div>
-        </Else>
         <Button onclick={() => count((prev) => ++prev)}>increment</Button>
         <Button onclick={() => count((prev) => --prev)}>decrement</Button>
       </If>
